@@ -1,2 +1,28 @@
-<h1>Slacker</h1>
-<p>Who's the biggest slacker?</p>
+<h1>Tweets</h1>
+
+<h3>Casey Kelly's most recent tweets</h3>
+<ul>
+  <% @casey.caseys_tweets.each do |tweet| %>
+    <li><%= tweet.text %></li>
+  <% end %>
+</ul>
+
+<h3>Justin Bieber's most recent marriage proposals</h3>
+<ul>
+  <% @casey.bieber_tweets.each do |tweet| %>
+  <li><%= tweet %></li>
+  <% end %>
+</ul>
+
+<h3>Tweets from any user you enter below</h3>
+
+<%= form_tag '/', method: :get %>
+<%= label_tag("Twitter Username") %>
+<%= text_field_tag(:username) %>
+<%= submit_tag %>
+
+<ul>
+  <% @othertweets.each do |tweet| %>
+    <li><%= tweet.text %></li>
+  <% end %>
+</ul>
